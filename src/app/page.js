@@ -10,8 +10,8 @@ export default function Home() {
       <HeroSection></HeroSection>
       <RetailerSection></RetailerSection>
       <SrSection></SrSection>
-      <FeatureSection></FeatureSection>
       <ProcessSection></ProcessSection>
+      <FeatureSection></FeatureSection>
     </section>
   );
 }

@@ -1,6 +1,7 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/utilitis/Header";
+import Header from "@/components/utilities/Header";
+import Footer from "@/components/utilities/Footer";
 
 const montserrat = Montserrat({
   weight: ["400", "500"],
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
       <body className={`${montserrat.className}  antialiased `}>
         <Header></Header>
         <main className="max-w-7xl mx-auto">{children}</main>
+        <Footer></Footer>
       </body>
     </html>
   );
