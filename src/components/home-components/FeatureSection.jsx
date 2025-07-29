@@ -24,7 +24,7 @@ const FeatureSection = () => {
 
   return (
     <section className="my-20">
-      <h2 className="text-3xl font-medium text-center my-20">
+      <h2 className="text-3xl font-medium text-center mb-20">
         Why Choose Vendor Match ?
       </h2>
       <div className="grid grid-cols-3 gap-5 ">

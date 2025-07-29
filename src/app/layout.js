@@ -2,6 +2,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/utilities/Header";
 import Footer from "@/components/utilities/Footer";
+import SessionProviderWrapper from "@/components/session-provider/SessionProviderWrapper";
 
 const montserrat = Montserrat({
   weight: ["400", "500"],
@@ -16,11 +17,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className}  antialiased `}>
-        <Header></Header>
-        <main className="max-w-7xl mx-auto">{children}</main>
-        <Footer></Footer>
-      </body>
+      <SessionProviderWrapper>
+        <body className={`${montserrat.className}  antialiased `}>
+          <Header></Header>
+          <main className="max-w-7xl mx-auto">{children}</main>
+          <Footer></Footer>
+        </body>
+      </SessionProviderWrapper>
     </html>
   );
 }

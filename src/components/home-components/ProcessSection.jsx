@@ -39,7 +39,7 @@ const ProcessSection = () => {
     },
   ];
   return (
-    <section className="my-50">
+    <section className="my-30">
       <div className="px-4">
         <h2 className="text-3xl font-medium text-center my-20">
           How Our Platform Works
