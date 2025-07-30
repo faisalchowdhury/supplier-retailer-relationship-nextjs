@@ -43,7 +43,7 @@ const SrRegister = () => {
   const onSubmit = async (data) => {
     try {
       const image_url = await handleUploadToCloudinary(selectedFile);
-      console.log(data);
+      // console.log(data);
       data.image_url = image_url;
 
       const res = await fetch("/api/register", {
@@ -51,10 +51,10 @@ const SrRegister = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-
+      // console.log(res);
       const result = await res.json();
       if (!res.ok) throw new Error(result.error || "Failed to register");
-
+      // console.log(result);
       toast.success("Registration successful!");
       reset();
     } catch (error) {

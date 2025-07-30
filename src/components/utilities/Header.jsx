@@ -50,12 +50,14 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-5 2xl:px-0">
         <div className="flex justify-between items-center py-3 relative">
           <div className="flex gap-5 items-center ">
-            <Image
-              src={"/logoDark.png"}
-              width={200}
-              height={50}
-              alt="Vendor match logo"
-            />
+            <Link href={"/"}>
+              <Image
+                src={"/logoDark.png"}
+                width={200}
+                height={50}
+                alt="Vendor match logo"
+              />
+            </Link>
             {/* Dropdown mobile menu */}
             <div className="block sm:hidden">
               <LuMenu size={24} onClick={() => setMenuOpen(!menuOpen)} />
@@ -73,8 +75,13 @@ const Header = () => {
           <div className="hidden sm:block">
             <ul className="flex items-center gap-5">{menu}</ul>
           </div>
-          <div>
-            <Button variant="default">Login</Button>
+          <div className="space-x-3">
+            <Link href={"/signin"}>
+              <Button variant="default">Login</Button>
+            </Link>
+            <Link href={"/register-option"}>
+              <Button variant="accent">Register</Button>
+            </Link>
           </div>
         </div>
       </div>

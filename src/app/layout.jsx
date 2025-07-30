@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/utilities/Header";
 import Footer from "@/components/utilities/Footer";
 import SessionProviderWrapper from "@/components/session-provider/SessionProviderWrapper";
+import { Toaster } from "react-hot-toast";
 
 const montserrat = Montserrat({
   weight: ["400", "500"],
@@ -19,9 +20,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <SessionProviderWrapper>
         <body className={`${montserrat.className}  antialiased `}>
-          <Header></Header>
-          <main className="max-w-7xl mx-auto">{children}</main>
-          <Footer></Footer>
+          <Toaster></Toaster>
+          <main className="">{children}</main>
         </body>
       </SessionProviderWrapper>
     </html>
