@@ -1,9 +1,8 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/utilities/Header";
-import Footer from "@/components/utilities/Footer";
-import SessionProviderWrapper from "@/components/session-provider/SessionProviderWrapper";
+
 import { Toaster } from "react-hot-toast";
+import SessionWrapper from "@/sessionWrapper/SessionWrapper";
 
 const montserrat = Montserrat({
   weight: ["400", "500"],
@@ -18,12 +17,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <SessionProviderWrapper>
+      <SessionWrapper>
         <body className={`${montserrat.className}  antialiased `}>
           <Toaster></Toaster>
           <main className="">{children}</main>
         </body>
-      </SessionProviderWrapper>
+      </SessionWrapper>
     </html>
   );
 }
