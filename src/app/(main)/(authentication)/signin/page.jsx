@@ -15,7 +15,8 @@ export default function SignIn() {
     const result = await signIn("credentials", {
       email,
       password,
-      redirect: false, // handle redirection manually
+      redirect: true,
+      callbackUrl: "/dashboard",
     });
 
     if (result.ok) {

@@ -15,6 +15,11 @@ export default function DashboardLayout({ children }) {
       icon: <LayoutDashboard size={18} />,
     },
     {
+      name: "Profile",
+      href: "/profile",
+      icon: <User size={18} />,
+    },
+    {
       name: "Products",
       href: "/dashboard/products",
       icon: <Store size={18} />,
