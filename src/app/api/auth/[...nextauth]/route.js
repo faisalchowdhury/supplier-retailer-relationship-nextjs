@@ -1,9 +1,11 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import clientPromise from "@/lib/mongodb";
-import bcrypt from "bcrypt";
 
-const handler = NextAuth({
+import bcrypt from "bcrypt";
+import dbConnect from "@/lib/dbConnect";
+import { collectionList } from "@/lib/collectionList";
+
+export const authOptions = {
   debug: true,
   providers: [
     CredentialsProvider({
@@ -13,12 +15,11 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const client = await clientPromise;
-        const db = client.db("vendor-match");
+        const usersCollection = await dbConnect(collectionList.users);
 
-        const user = await db
-          .collection("users")
-          .findOne({ email: credentials.email });
+        const user = await usersCollection.findOne({
+          email: credentials.email,
+        });
         if (!user) {
           throw new Error("No user found");
         }
@@ -55,6 +56,8 @@ const handler = NextAuth({
   },
 
   secret: process.env.NEXTAUTH_SECRET,
-});
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

@@ -1,8 +1,7 @@
-import clientPromise from "@/lib/mongodb";
+import { collectionList } from "@/lib/collectionList";
+import dbConnect from "@/lib/dbConnect";
+import clientPromise from "@/lib/dbConnect";
 import bcrypt from "bcrypt";
-
-
-
 
 export async function POST(req) {
   try {
@@ -25,9 +24,7 @@ export async function POST(req) {
       );
     }
 
-    const client = await clientPromise;
-    const db = client.db("vendor-match");
-    const usersCollection = db.collection("users");
+    const usersCollection = await dbConnect(collectionList.users);
 
     // Check if email already exists
     const existingUser = await usersCollection.findOne({ email });
