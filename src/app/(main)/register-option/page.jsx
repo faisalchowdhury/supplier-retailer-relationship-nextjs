@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { Store, Handshake } from "lucide-react";
+import Link from "next/link";
 
 export default function RegisterOption() {
   const router = useRouter();
@@ -64,9 +65,11 @@ export default function RegisterOption() {
             </p>
           </CardContent>
           <CardFooter>
-            <Button onClick={() => router.push("/register/sales")}>
-              Register as Sales Representative
-            </Button>
+            <Link href={"/sr/registration"}>
+              <Button onClick={() => router.push("/register/sales")}>
+                Register as Sales Representative
+              </Button>
+            </Link>
           </CardFooter>
         </Card>
       </div>
