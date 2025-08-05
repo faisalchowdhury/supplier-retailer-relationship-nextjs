@@ -5,6 +5,7 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import SrLottie from "@/assets/lottie/sr.json";
 import Lottie from "react-lottie";
+import { handleCloudinary } from "@/lib/handleCloudinary";
 const SrRegister = () => {
   const [selectedFile, setSelectedFile] = useState({});
   const {
@@ -21,28 +22,9 @@ const SrRegister = () => {
     setSelectedFile(file);
   };
 
-  // Handle upload to cloudinary
-
-  const handleUploadToCloudinary = async (imageFile) => {
-    const formData = new FormData();
-    formData.append("file", imageFile);
-    formData.append("upload_preset", "unsigned_preset");
-
-    const imageInfo = await fetch(
-      `https://api.cloudinary.com/v1_1/dtvrjavzf/image/upload`,
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
-
-    const res = await imageInfo.json();
-    return res.secure_url;
-  };
-
   const onSubmit = async (data) => {
     try {
-      const image_url = await handleUploadToCloudinary(selectedFile);
+      const image_url = await handleCloudinary(selectedFile);
       // console.log(data);
       data.image_url = image_url;
 
