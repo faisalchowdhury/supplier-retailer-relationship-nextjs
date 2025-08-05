@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { signOut } from "next-auth/react";
 import { LuMenu } from "react-icons/lu";
 import {
   NavigationMenu,
@@ -82,6 +83,9 @@ const Header = () => {
             <Link href={"/register-option"}>
               <Button variant="accent">Register</Button>
             </Link>
+            
+              <Button onClick={()=> signOut()} variant="accent">Sign Out</Button>
+            
           </div>
         </div>
       </div>
