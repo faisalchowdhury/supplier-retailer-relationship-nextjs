@@ -2,7 +2,15 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, LayoutDashboard, LogOut, Store, User } from "lucide-react";
+import {
+  Menu,
+  LayoutDashboard,
+  LogOut,
+  Store,
+  User,
+  ShoppingBag,
+  Box,
+} from "lucide-react";
 import Link from "next/link";
 
 export default function DashboardLayout({ children }) {
@@ -16,15 +24,19 @@ export default function DashboardLayout({ children }) {
     },
     {
       name: "Profile",
-      href: "/profile",
+      href: "/dashboard/profile",
       icon: <User size={18} />,
     },
     {
-      name: "Products",
-      href: "/dashboard/products",
-      icon: <Store size={18} />,
+      name: "Add Product",
+      href: "/dashboard/add-product",
+      icon: <ShoppingBag size={18} />,
     },
-    { name: "Profile", href: "/dashboard/profile", icon: <User size={18} /> },
+    {
+      name: "My Product",
+      href: "/dashboard/my-products",
+      icon: <Box size={18} />,
+    },
   ];
 
   return (
